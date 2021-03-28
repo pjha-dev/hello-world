@@ -1,0 +1,8 @@
+<div class="container">
+    <nav class="nav nav-tabs">
+        <a class="nav-link" routerLink='/home' routerLinkActive='active current'>Home</a>
+        <a class="nav-link"  [queryParams]="{ page:1, order:'newest' }" routerLink='/followers'  routerLinkActive routerLinkActive='active current'>Followers</a>
+        <a class="nav-link" routerLink='/posts' routerLinkActive routerLinkActive='active current'>Posts</a>
+    </nav>
+</div>
+<!-- in angular we don't use href tag -->

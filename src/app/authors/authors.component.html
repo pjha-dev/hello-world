@@ -1,0 +1,30 @@
+<!-- this is string interpolation -->
+<h2>{{title}}</h2>
+
+
+<div class="black_border" (click)="onDivClick($event)">
+    <h4>click event is also present on div: EventBubbling</h4>
+    <p>need to stop propagation of event from button</p>
+    <button class="btn btn-primary" [class.active]="isActive" (click)="onBtnClick($event)">Click me to acttivate click
+        event</button>
+</div>
+
+<div class="black_border">
+    <h4>Event filtering</h4>
+    <!-- Case1: -->
+    <!-- <input (keyup)="onKeyUp($event)" /> -->
+
+    <!-- case 2: Template variable binding-->
+    <!-- <input #email (keyup.enter)="onKeyUp(email.value)" /> -->
+
+    <!-- Case 3: two way binding **import FormsModule in app module.ts-->
+    <input [(ngModel)]="val" (keyup.enter)="onKeyUp()" />
+</div>
+
+<ul>
+    <!-- ngFor is a derective -->
+    <li *ngFor="let author of authors">
+        {{author}}
+    </li>
+
+</ul>

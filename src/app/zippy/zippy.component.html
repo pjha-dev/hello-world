@@ -1,0 +1,8 @@
+<div class="container">
+    <ul class="list-group">
+        <li class="list-group-item"><i class="bi bi-arrow-down-circle" (click)="isSDSelected=!isSDSelected;"> Shipping Details</i></li>
+        <li class="list-group-item" [hidden]="isSDSelected">Shipping details content</li>
+        <li class="list-group-item"><i class="bi bi-arrow-down-circle" (click)="isBDSelected=!isBDSelected;"> Billing Details</i></li>
+        <li class="list-group-item" [hidden]="isBDSelected">Billing details content</li>
+    </ul>
+</div>

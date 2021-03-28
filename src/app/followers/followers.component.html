@@ -1,0 +1,20 @@
+<div class="container">
+
+    <h3>Mosh followers</h3>
+
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor='let follower of followers'>
+
+            <img src="{{follower.avatar_url}}" class="img-thumbnail avatar" alt="Cinque Terre">
+
+            <p><a href="{{follower.html_url}}">{{follower.login}}</a></p>
+            <a [routerLink]="['/followers', follower.id, follower.login]">
+                <!-- router link hers is used as property binding and not attribute because 
+                of dynamic url creation -->
+                <p>Profile</p>
+            </a>
+
+        </li>
+    </ul>
+
+</div>

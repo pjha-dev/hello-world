@@ -1,0 +1,43 @@
+<div class="container">
+
+    <form #frm='ngForm' (submit)='onSubmit(frm)'>
+
+        <div ngModelGroup='FG' #fg='ngModelGroup'>
+
+            <div class="form-group">
+                <label for="courseName">Course name:</label>
+                <input required type="text" class="form-control" id="courseName" ngModel name="courseName"
+                    #cnm='ngModel' (change)='onChange(cnm)' minlength="3" maxlength="20">
+
+                <div *ngIf="!cnm.valid && cnm.touched">
+                    <div class="alert alert-danger">
+                        <div *ngIf="cnm.errors?.required">Course name is required</div>
+                        <div *ngIf="cnm.errors?.minlength">Minimum length is {{cnm.errors?.minlength.requiredLength}}
+                        </div>
+                        <div *ngIf="cnm.errors?.maxlength">Maximum length is {{cnm.errors?.maxlength.requiredLength}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <select ngModel name="category" id="category" class="form-control" (change)='onSelectChange(cat)'
+                    #cat='ngModel' required>
+                    <option value="" selected disabled hidden>--Select your option--</option>
+
+                    <option *ngFor='let c of categories; let i = index;' value="{{c}}">{{c}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" id="moneyBack" name="moneyBack" ngModel class="form-check-input">
+                <label for="moneyBack" class='form-check-label'>30 days money back</label>
+            </div>
+
+        </div>
+        <div>
+            {{frm.value|json}}
+        </div>
+        <button class="btn btn-primary" [disabled]='!frm.valid'>Submit</button>
+    </form>
+
+</div>

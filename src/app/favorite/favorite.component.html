@@ -1,0 +1,17 @@
+<h1>Favorite component</h1>
+
+
+<h3>
+    <i class="bi"
+    [class.bi-star]="!isFavorite" 
+    [class.bi-star-fill]="isFavorite" 
+    (click)="onClick($event)">
+
+    </i>
+</h3>
+
+<div>
+    <input [(ngModel)] = "title" type="text"/>
+    <h5>{{title | titleCase}}</h5>
+</div>
+

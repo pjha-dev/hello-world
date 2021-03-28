@@ -1,0 +1,12 @@
+<h1>Course Component</h1>
+
+<ul>
+    <li>{{course.title | uppercase | lowercase}}</li>
+    <!-- 1.1-1 = number before decimal should be one and after can be between
+        min 1 or max 1-->
+    <li>{{course.rating | number:'1.1-1'}}</li>
+
+    <li>{{course.students | number}}</li>
+    <li>{{course.price | currency:'INR'}}</li>
+    <li>{{course.releaseDate | date:'shortDate'}}</li>
+</ul>

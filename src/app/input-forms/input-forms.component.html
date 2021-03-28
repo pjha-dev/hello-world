@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Input form</h2>
+    <form action="#" #fm="ngForm" (ngSubmit)="submit(fm)">
+        <div ngModelGroup="first FG">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input required minlength="3" maxlength="10" pattern="pranu" ngModel name="firstName" #fnm="ngModel"
+                    (change)=onChange(fnm) type="text" id="firstName" class="form-control">
+                <div>
+                    <div *ngIf="fnm.touched && !fnm.valid" class="alert alert-danger">
+                        <div *ngIf="fnm.errors?.required">
+                            First name required
+                        </div>
+                        <div *ngIf="fnm.errors?.minlength">Minimum length is {{fnm.errors?.minlength.requiredLength}}
+                        </div>
+                        <div *ngIf="fnm.errors?.pattern">Pattern mismatch</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="comment">Comment</label>
+            <textarea ngModel name="comment" id="comment" cols="10" rows="3" class="form-control"></textarea>
+        </div>
+
+        <button class="btn btn-primary" [disabled]="!fm.valid">Submit</button>
+    </form>
+</div>

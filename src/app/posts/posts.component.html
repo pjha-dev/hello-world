@@ -1,0 +1,40 @@
+<button class="btn btn-primary" (click)='getPosts()' hidden>
+    get posts
+</button>
+
+
+<div class="container">
+    <input type="text" (keyup.enter)='createPost(title)' #title class="form-control">
+
+
+    <!-- {{newPost | async|json}} -->
+</div>
+
+<div class="container">
+
+    <!-- Case 1: -->
+    <!-- <ul class="list-group" *ngFor="let post of posts | async">
+        <li class="list-group-item">
+            {{post|json}}
+        </li>
+    </ul> -->
+    <!-- Case 2: -->
+    <ul class="list-group" *ngFor="let post of posts">
+
+
+        <li class="list-group-item">
+            <h5>{{post.title|json}}</h5>
+
+            <div class="container">
+                <button class="btn btn-warning btn-sm" (click)='updatePost(post)'>
+                    update
+                </button>
+                <button class="btn btn-danger btn-sm" (click)='deletePost(post)'>
+                    delete
+                </button>
+            </div>
+        </li>
+    </ul>
+
+
+</div>
